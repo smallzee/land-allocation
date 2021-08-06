@@ -15,9 +15,9 @@
 		<select name="app_id" class="form-control" required="">
 			<option value="">Select</option>
 			<?php
-				$sql = mysql_query("SELECT app_id FROM allocation ORDER BY id DESC") or die(mysql_error());
+				$sql = $db->query("SELECT app_id FROM allocation ORDER BY id DESC") ;
 
-				while($rs = mysql_fetch_assoc($sql))
+				while($rs = $sql->fetch(PDO::FETCH_ASSOC))
 				{
 					echo "<option>".$rs['app_id']."</option>";
 				}

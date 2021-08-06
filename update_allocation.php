@@ -21,8 +21,8 @@
 		$id = $_POST['id'];
 		$date_updated = time();
 
-		$update = mysql_query("UPDATE allocation SET 
-			applicant_name='$applicant_name', applicant_address='$applicant_address', state='$state', lga='$lga', occupation='$occupation', email='$email', phone='$phone',  land_use='$land_use', plot_no='$plot_no', plot_size='$plot_size', block_no='$block_no', date_updated='$date_updated' WHERE id='$id'") or die(mysql_error());
+		$update = $db->query("UPDATE allocation SET 
+			applicant_name='$applicant_name', applicant_address='$applicant_address', state='$state', lga='$lga', occupation='$occupation', email='$email', phone='$phone',  land_use='$land_use', plot_no='$plot_no', plot_size='$plot_size', block_no='$block_no', date_updated='$date_updated' WHERE id='$id'") ;
 		
 		$app_id = get_post('app_id');
 		$here = "<a target='_blank' href='print_form.php?app_id=".$app_id."'>Here</a>";
@@ -33,13 +33,13 @@
 	}
 	if(isset($_GET['id'])){
 		$id = $_GET['id'];
-		$sql = mysql_query("SELECT * FROM allocation WHERE id='$id'") or die(mysql_error());
-		$n = mysql_num_rows($sql);
+		$sql = $db->query("SELECT * FROM allocation WHERE id='$id'") ;
+		$n = $sql->rowCount();
 		if($n == 0){
 			header("location:update_allocation.php");
 			exit();
 		}
-		$rs = mysql_fetch_assoc($sql);
+		$rs = $sql->fetch(PDO::FETCH_ASSOC);
 		$page_title = "Update Allocation - ".$rs['app_id'];
 	}else{
 		$page_title = "Update Allocation";

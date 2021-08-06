@@ -20,8 +20,8 @@
 			<select name="state" required="" id="state" class="form-control">				
 				<option><?php echo $state;?></option>
 				<?php
-					$state_sql = mysql_query("SELECT DISTINCT(state) FROM states") or die(mysql_error());
-					while($state_rs = mysql_fetch_assoc($state_sql))
+					$state_sql = $db->query("SELECT DISTINCT(state) FROM states") ;
+					while($state_rs = $state_sql->fetch(PDO::FETCH_ASSOC))
 					{
 						echo "<option>".$state_rs['state']."</option>";
 					}
@@ -59,7 +59,7 @@
 			<select class="form-control" required="" name="lga_situated" disabled="">
 				<option><?php echo $lga_situated;?></option>
 				<?php
-					/*$lga_sql = mysql_query("SELECT lga FROM states WHERE state='Osun' ORDER BY lga") or die(mysql_error());
+					/*$lga_sql = mysql_query("SELECT lga FROM states WHERE state='Osun' ORDER BY lga") ;
 					while($lga_rs = mysql_fetch_assoc($lga_sql))
 					{
 						echo "<option>".$lga_rs['lga']."</option>";

@@ -16,10 +16,10 @@
 	if($type == "All" || $type == "" || $type=="all")
 	{
 		$name = "All Local Government";
-		$sql = mysql_query("SELECT * FROM allocation ORDER BY id DESC") or die(mysql_error());
+		$sql = $db->query("SELECT * FROM allocation ORDER BY id DESC") ;
 	}else{
 		$name = "$type Local Government";
-		$sql = mysql_query("SELECT * FROM allocation WHERE lga_situated='$type'") or die(mysql_error());
+		$sql = $db->query("SELECT * FROM allocation WHERE lga_situated='$type'") ;
 	}
 ?>
 <div id="wrapper">
@@ -45,7 +45,8 @@
      </div>
      <div class="container">
      <div class="row">
-     <div class="col-md-12">	
+     <div class="col-md-12">
+     </div>
 	<h3 class="page-header">Allocation Reports for <?php echo $name; ?></h3>
 	<table class="table table-bordered">
 		<thead>
@@ -76,12 +77,12 @@
 		</tfoot>
 		<tbody>
 			<?php
-				$n = mysql_num_rows($sql);
+				$n = $sql->rowCount();
 				if($n == 0){
 					echo "<tr><td colspan='9'>No Land Allocated in $name</td></tr>";
 				}else{
 					$sn = 0;
-					while($rs = mysql_fetch_assoc($sql)){
+					while($rs = $sql->fetch(PDO::FETCH_ASSOC)){
 					?>
 						<tr>
 							<td><?php echo ++$sn;?></td>

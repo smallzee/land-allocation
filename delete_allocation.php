@@ -13,7 +13,7 @@
 		$c = count($id);
 
 		foreach ($id as $key) {
-			$s = mysql_query("DELETE FROM allocation WHERE id='$key'") or die(mysql_error());
+			$s = $db->query("DELETE FROM allocation WHERE id='$key'") ;
 		}
 
 		set_flash("$c Selected Allocations deleted successfully","success");
@@ -22,9 +22,9 @@
 	}
 
 	flash();
-	$sql = mysql_query("SELECT id,app_id,lga_situated,plot_no,block_no FROM allocation ORDER BY id DESC") or die(mysql_error());
+	$sql = $db->query("SELECT id,app_id,lga_situated,plot_no,block_no FROM allocation ORDER BY id DESC") ;
 
-	$n = mysql_num_rows($sql);
+	$n = $sql->rowCount();
 
 	if($n == 0)
 	{
@@ -55,7 +55,7 @@
 	</tfoot>
 	<?php
 		$sn = 0;
-		while($rs = mysql_fetch_assoc($sql))
+		while($rs = $sql->fetch(PDO::FETCH_ASSOC))
 		{
 			?>
 			<tr>

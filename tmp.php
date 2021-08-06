@@ -30,7 +30,7 @@
 	</div>
 </section>
 <section id="footer">
-	&copy; 2016 - Ministry of Lands, Physical Planning and Urban Development
+	&copy; 2021 - Ministry of Lands, Physical Planning and Urban Development
 </section>
 <script type="text/javascript" src="lib/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>

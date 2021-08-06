@@ -17,8 +17,8 @@
 			<option value="">Select</option>
 			<option value="All">All Local Government</option>
 			<?php
-				$sql = mysql_query("SELECT lga FROM states WHERE state='Osun'") or die(mysql_error());
-				while($ds = mysql_fetch_assoc($sql))
+				$sql = $db->query("SELECT lga FROM states WHERE state='Osun'") ;
+				while($ds = $sql->fetch(PDO::FETCH_ASSOC))
 				{
 					echo "<option>".$ds['lga']."</option>";
 				}

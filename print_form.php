@@ -15,14 +15,14 @@ if($app_id == "")
     header("location:admin.php");
     exit();
 }
-$sql = mysql_query("SELECT * FROM allocation WHERE app_id='$app_id'") or die(mysql_error());
-$num = mysql_num_rows($sql);
+$sql = $db->query("SELECT * FROM allocation WHERE app_id='$app_id'") ;
+$num = $sql->rowCount();
 if($num == 0)
 {
     header("location:admin.php");
     exit();
 }
-$rs = mysql_fetch_assoc($sql);
+$rs = $sql->fetch(PDO::FETCH_ASSOC);
 extract($rs);
 //var_dump($rs);
 //exit();

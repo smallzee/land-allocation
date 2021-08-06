@@ -5,8 +5,8 @@
 	{
 		$state = $_GET['state'];		
 		
-		$lga_sql = mysql_query("SELECT lga FROM states WHERE state='$state' ORDER BY lga") or die(mysql_error());
-		while($lga_rs = mysql_fetch_assoc($lga_sql))
+		$lga_sql = $db->query("SELECT lga FROM states WHERE state='$state' ORDER BY lga") ;
+		while($lga_rs = $lga_sql->fetch(PDO::FETCH_ASSOC))
 		{
 			echo "<option>".$lga_rs['lga']."</option>";
 		}

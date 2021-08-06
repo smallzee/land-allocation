@@ -25,19 +25,19 @@
 
 		//CHECK ERRORS
 		
-		$sql1 = mysql_query("SELECT NULL FROM allocation WHERE lga_situated='$lga_situated' and plot_no='$plot_no' and block_no='$block_no'") or die(mysql_error());
+		$sql1 = $db->query("SELECT NULL FROM allocation WHERE lga_situated='$lga_situated' and plot_no='$plot_no' and block_no='$block_no'") ;
 
-		$num = mysql_num_rows($sql1);
+		$num = $sql1->rowCount();
 
 		if($num == 0){
 			$save = "INSERT INTO allocation VALUES('','','$allocation_date','$applicant_name','$applicant_address','$state','$lga','$occupation','$email','$phone','$lga_situated','$land_use','$plot_no','$plot_size','$block_no','$allocation_date')";
-			$in = mysql_query($save);
+			$in = $db->query($save);
 
-			$insert_id = mysql_insert_id();
+			$insert_id = $db->lastInsertId();
 
 			$app_id = "OSUN/".strtoupper($lga_situated)."/".num_formats($insert_id);
 
-			$update = mysql_query("UPDATE allocation SET app_id='$app_id' WHERE id='$insert_id'") or die(mysql_error());
+			$update = $db->query("UPDATE allocation SET app_id='$app_id' WHERE id='$insert_id'") ;
 			$here = "<a target='_blank' href='print_form.php?app_id=".$app_id."'>Here</a>";
 			set_flash("Land allocated successfully, click $here to print the receipt","success");
 			header("location:allocate.php");
@@ -88,8 +88,8 @@
 			<select name="state" required="" id="state" class="form-control">
 				<option value="">Select State</option>
 				<?php
-					$state_sql = mysql_query("SELECT DISTINCT(state) FROM states") or die(mysql_error());
-					while($state_rs = mysql_fetch_assoc($state_sql))
+					$state_sql = $db->query("SELECT DISTINCT(state) FROM states") ;
+					while($state_rs = $state_sql->fetch(PDO::FETCH_ASSOC))
 					{
 						echo "<option>".$state_rs['state']."</option>";
 					}
@@ -127,8 +127,8 @@
 			<select class="form-control" required="" name="lga_situated">
 				<option value="">LGA</option>
 				<?php
-					$lga_sql = mysql_query("SELECT lga FROM states WHERE state='Osun' ORDER BY lga") or die(mysql_error());
-					while($lga_rs = mysql_fetch_assoc($lga_sql))
+					$lga_sql = $db->query("SELECT lga FROM states WHERE state='Osun' ORDER BY lga") ;
+					while($lga_rs = $lga_sql->fetch())
 					{
 						echo "<option>".$lga_rs['lga']."</option>";
 					}
