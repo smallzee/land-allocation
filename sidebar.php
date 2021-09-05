@@ -49,6 +49,12 @@
                     </li>
 
                     <li>
+                        <a href="inbox.php" class=" hvr-bounce-to-right">
+                            <i class="fa fa-print nav_icon"></i> <span class="nav-label">Contact Message</span>
+                        </a>
+                    </li>
+
+                    <li>
                         <a href="add_admin.php" class="hvr-bounce-to-right">
                             <i class="fa fa-user nav_icon"></i> <span class="nav-label">Add Admin</span></a>
                         </a>

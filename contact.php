@@ -5,9 +5,12 @@
 		$name = get_post('name');
 		$email = get_post('email');
 		$msg = get_post('msg');
-		$to = "admin@example.com";
+		//$to = "admin@example.com";
 		$subject = "Contact Message From $name , $email";
-		@mail($to, $subject, $msg);
+		//@mail($to, $subject, $msg);
+
+        $db->query("INSERT INTO inbox (name,email,message)VALUES ('$name','$email','$msg')");
+
 		set_flash("Your message has been sent successfully!","success");
 		header("location:contact.php");
 		exit();

@@ -78,19 +78,20 @@
 								$lga_situated = $_GET['lga_situated'];
 								$plot_no = $_GET['plot_no'];
 								$block_no = $_GET['block_no'];
+
 								$sql ="SELECT applicant_name FROM allocation WHERE lga_situated='$lga_situated' and plot_no='$plot_no' and block_no='$block_no'";
 
 								$num = $db->query($sql);
-								if($num == 0)
+								if($num->rowCount() == 0)
 								{
 									echo "<div class='well'>No land with Block Number $block_no and Plot Number $plot_no has been allocated in $lga_situated Local Government</div>";
 								}else{
-									$rs = $db->query($sql);
+									$rs = $num->fetch(PDO::FETCH_ASSOC);
 									$name = "<b>".$rs['applicant_name']."</b>";
 									echo "<div class='well well'>Land with Block Number $block_no and Plot Number $plot_no has been allocated to $name in $lga_situated Local Government</div>";
 								}
 							}
-						?>						
+						?>
 						<legend><h3 class="page-title">Search For Land</h3></legend>
 						<form action="" method="get">
 							<div class="form-group">
