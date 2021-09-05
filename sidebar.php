@@ -29,13 +29,13 @@
                     </li>
                    
                     <li>
-                        <a href="allocate.php" class=" hvr-bounce-to-right"> <i class="fa fa-plus nav_icon"></i>Allocate Land</a>
+                        <a href="allocate.php" class=" hvr-bounce-to-right"> <i class="fa fa-plus nav_icon"></i>Land Information</a>
                     </li>
                     <li>
-                        <a href="update_allocation.php" class=" hvr-bounce-to-right"> <i class="fa fa-pencil nav_icon"></i>Update Allocation</a>
+                        <a href="update_allocation.php" class=" hvr-bounce-to-right"> <i class="fa fa-pencil nav_icon"></i>Update Land Information</a>
                     </li>
                     <li>
-                        <a href="delete_allocation.php" class=" hvr-bounce-to-right"> <i class="fa fa-trash-o nav_icon"></i>Delete Allocation</a>
+                        <a href="delete_allocation.php" class=" hvr-bounce-to-right"> <i class="fa fa-trash-o nav_icon"></i>Delete Land Information</a>
                     </li>
 
                     <li>

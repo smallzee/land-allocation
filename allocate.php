@@ -25,12 +25,14 @@
 
 		//CHECK ERRORS
 		
-		$sql1 = $db->query("SELECT NULL FROM allocation WHERE lga_situated='$lga_situated' and plot_no='$plot_no' and block_no='$block_no'") ;
+		$sql1 = $db->query("SELECT * FROM allocation WHERE lga_situated='$lga_situated' and plot_no='$plot_no' and block_no='$block_no'") ;
 
 		$num = $sql1->rowCount();
 
 		if($num == 0){
-			$save = "INSERT INTO allocation VALUES('','','$allocation_date','$applicant_name','$applicant_address','$state','$lga','$occupation','$email','$phone','$lga_situated','$land_use','$plot_no','$plot_size','$block_no','$allocation_date')";
+
+			$save = "INSERT INTO allocation (app_id,allocation_date,applicant_name,applicant_address,state,lga,occupation,email,phone,lga_situated,land_use,plot_no,plot_size,block_no,date_updated)VALUES('','$allocation_date','$applicant_name','$applicant_address','$state','$lga','$occupation','$email','$phone','$lga_situated','$land_use','$plot_no','$plot_size','$block_no','$allocation_date')";
+
 			$in = $db->query($save);
 
 			$insert_id = $db->lastInsertId();
@@ -51,7 +53,7 @@
 		}
 
 	}
-	$page_title = "Osun Lands - Allocate Land";
+	$page_title = "Osun Lands -  Land Information";
 	include_once 'head.php';	
 	include_once 'sidebar.php';
 ?>

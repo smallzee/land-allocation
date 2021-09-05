@@ -72,7 +72,7 @@
 						</div>
 						<div class="panel-body">
 							<h4>
-								Project supervised by Mr. A.U Adewale
+								Project supervised by Dr. A.A Adewale
 							</h4>
 						</div>
 						<div class="panel-footer">&nbsp;</div>
@@ -89,7 +89,7 @@
 								Project written, complied and developed by
 							</h4>
 <!--							<p>-->
-<!--								Oni Adijat Odunayo - CS201302334DPT-->
+								Omotara Muyiwa Akinyemi - HC20180104703
 <!--							</p>-->
 
 						</div>
@@ -105,7 +105,7 @@
 </section>
 
 <section id="footer" style="margin-top: 0px;">
-	&copy; 2016 - Ministry of Lands, Physical Planning and Urban Development
+	&copy; 2021 - Ministry of Lands, Physical Planning and Urban Development
 </section>
 <script type="text/javascript" src="lib/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>

@@ -2,7 +2,7 @@
 </div>
 </div>
 <p style='padding: 10px; text-align: center;'>
-	Project Supervised by Mr. A.U Adewale
+	Project Supervised by Dr. A.A Adewale
 </p>
 </div>
 </div>

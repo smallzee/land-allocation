@@ -81,7 +81,7 @@
 						</div>
 						<div class="panel-body">
 							<h4>
-								Project supervised by Mr. A.U Adewale
+								Project supervised by Dr. A.A Adewale
 							</h4>
 						</div>
 						<div class="panel-footer">&nbsp;</div>
@@ -97,9 +97,9 @@
 							<h4>
 								Project written, complied and developed by
 							</h4>
-<!--							<p>-->
-<!--								Oni Adijat Odunayo - CS201302334DPT-->
-<!--							</p>-->
+							<p>
+                                Omotara Muyiwa Akinyemi - HC20180104703
+							</p>
 <!--							-->
 						</div>
 						<div class="panel-footer">&nbsp;</div>
